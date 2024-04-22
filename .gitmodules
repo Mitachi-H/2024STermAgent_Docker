@@ -1,0 +1,6 @@
+[submodule "src/GameServer"]
+	path = src/GameServer
+	url = https://github.com/aiwolfdial/AIWolfNLGameServer
+[submodule "src/NLAgentPython"]
+	path = src/NLAgentPython
+	url = https://github.com/aiwolfdial/AIWolfNLAgentPython
