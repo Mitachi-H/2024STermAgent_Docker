@@ -1,24 +1,8 @@
 version: "3.8"
 
 services:
-  aiwolf-server:
-    build:
-      context: ./docker/java
-    ports:
-      - "10000:10000"
-    networks:
-      - aiwolf-network
-    depends_on:
-      - aiwolf-agent
-
   aiwolf-agent:
     build:
       context: ./docker/python
-    ports:
-      - "50000-50004:50000-50004"
-    networks:
-      - aiwolf-network
-
-networks:
-  aiwolf-network:
-    driver: bridge
+    container_name: AIWOLF_AGENT
+    tty: true
