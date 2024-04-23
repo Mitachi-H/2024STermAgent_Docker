@@ -1,8 +1,11 @@
-version: "3.8"
-
 services:
   aiwolf-agent:
     build:
-      context: ./docker/python
+      context: .
+      dockerfile: ./docker/python/Dockerfile
     container_name: AIWOLF_AGENT
+    volumes:
+      - ./src/Agent:/Agent
+    ports:
+      - "50000-50004:50000-50004"
     tty: true
