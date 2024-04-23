@@ -1,9 +1,24 @@
-version: "3.6"
+version: "3.8"
+
 services:
-  java:
-    build: ./docker/java
+  aiwolf-server:
+    build:
+      context: ./docker/java
     ports:
-      - 8080:8080
-    tty: true
-    volumes:
-      - ./server/src:/usr/src:cached
+      - "10000:10000"
+    networks:
+      - aiwolf-network
+    depends_on:
+      - aiwolf-agent
+
+  aiwolf-agent:
+    build:
+      context: ./docker/python
+    ports:
+      - "50000-50004:50000-50004"
+    networks:
+      - aiwolf-network
+
+networks:
+  aiwolf-network:
+    driver: bridge
