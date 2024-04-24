@@ -1,7 +1,5 @@
 1. Docker の起動
 
 ```
-docker compose up
+docker compose up --build
 ```
-
-2.
