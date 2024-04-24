@@ -9,6 +9,8 @@ services:
     ports:
       - "50000-50004:50000-50004"
     tty: true
+    networks:
+      - aiwolf-network
 
   aiwolf-gameserver:
     build:
@@ -18,7 +20,13 @@ services:
     volumes:
       - ./src/GameServer:/GameServer
     ports:
-      - "10000:10000"
+      - "10001:10001"
     depends_on:
       - aiwolf-agent
     tty: true
+    networks:
+      - aiwolf-network
+
+networks:
+  aiwolf-network:
+    driver: bridge
