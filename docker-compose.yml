@@ -9,3 +9,16 @@ services:
     ports:
       - "50000-50004:50000-50004"
     tty: true
+
+  aiwolf-gameserver:
+    build:
+      context: .
+      dockerfile: ./docker/java/Dockerfile
+    container_name: AIWOLF_GAMESERVER
+    volumes:
+      - ./src/GameServer:/GameServer
+    ports:
+      - "10000:10000"
+    depends_on:
+      - aiwolf-agent
+    tty: true
